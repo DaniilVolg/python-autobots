@@ -1,0 +1,12 @@
+from selenium.webdriver.chrome.webdriver import WebDriver
+import chromedriver_autoinstaller
+
+
+
+def test_conftest(driver:WebDriver):
+    chromedriver_autoinstaller.install()
+    driver.get("https://www.google.com/")
+    driver.find_element_by_xpath("//input[@name='q']").send_keys("puppies")
+    driver.find_element_by_xpath("//input[@name='btnK']").click()
+    a = "puppies"
+    assert a in driver.title
