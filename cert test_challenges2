@@ -1,0 +1,12 @@
+from selenium.webdriver.chrome.webdriver import WebDriver
+import chromedriver_autoinstaller
+import time
+
+def test_conftest2(driver:WebDriver):
+    chromedriver_autoinstaller.install()
+    driver.get("https://www.copart.com")
+    driver.find_element_by_xpath("//input[@id='input-search']").send_keys("exotics")
+    driver.find_element_by_xpath("//button[@class='btn btn-lightblue marginleft15']").click()
+    time.sleep(10)
+    a = "PORSCHE"
+    assert a in driver.page_source
