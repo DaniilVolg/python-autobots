@@ -1,80 +1,21 @@
 
 
-from pprint import pprint
-
-import matplotlib.pyplot as plt
-
 import pandas as pd
 import pytest
 
+orders = pd.read_excel('E:\комп\model_sheet.xlsx', sheet_name='cars')
 
-# orders = pd.read_excel('E:\комп\model_sheet.xlsx', sheet_name='cars')
-
-
-
-class Exel_data():
-
-    def __init__(self,row1,row2,row3,row4):
-        self.row1 = row1
-        self.row2 = row2
-        self.row3 = row3
-        self.row4 = row4
+row1 = list(orders.iloc[0])
+row2 = list(orders.iloc[1])
+row3 = list(orders.iloc[2])
+row4 = list (orders.iloc[3])
 
 
 
-
-
-    def read_excel(self,table, sheet_name):
-
-
-
-
-        orders = pd.read_excel(table, sheet_name)
-
-    # identification the value of a single cell from column "MAKE"
-        make0 = str(orders.iloc[[0]]['MAKE'])
-        make1 = str(orders.iloc[[1]]['MAKE'])
-        make2 = str(orders.iloc[[2]]['MAKE'])
-        make3 = str(orders.iloc[[3]]['MAKE'])
-
-
-    # identification the value of a single cell from column "MODEL"
-        model0 = str(orders.iloc[[0]]['MODEL'])
-        model1 = str(orders.iloc[[1]]['MODEL'])
-        model2 = str(orders.iloc[[2]]['MODEL'])
-        model3 = str(orders.iloc[[3]]['MODEL'])
-
-
-    # identification the value of a single cell from column "YEAR"
-        year0 = int(orders.iloc[[0]]['YEAR'])
-        year1 = int(orders.iloc[[1]]['YEAR'])
-        year2 = int(orders.iloc[[2]]['YEAR'])
-        year3 = int(orders.iloc[[3]]['YEAR'])
-
-
-    # identification the value of any row
-        row1 = orders.iloc[[0]]
-        row2 = orders.iloc[[1]]
-        row3 = orders.iloc[[2]]
-        row4 = orders.iloc[[3]]
-
-        #return row1, row2, row3, row4
-
-        pprint(orders)
-
-    if __name__ == '__main__':
-
-        read_excel(table='E:\комп\model_sheet.xlsx', sheet_name='cars')
-
-
-
-
-
-
-list1 = [1, "toyota", "harrier", 2010]
-list2 = [2, "lexus", "rx330", 2014]
-list3 = [3, "bmw", "x5", 2015]
-list4 = [4, "toyota", "avalon", 2018]
+list1 = [1, 'toyota', 'harrier', 2010]
+list2 = [2, 'lexus', 'rx330', 2014]
+list3 = [3, 'bmw', 'x5', 2015]
+list4 = [4, 'toyota', 'avalon', 2018]
 
 
 @pytest.mark.parametrize("test_input, expected_result", [(row1, list1), (row2, list2), (row3, list3), (row4, list4)])
