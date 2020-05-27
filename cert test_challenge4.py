@@ -1,6 +1,28 @@
-def test_challenge44_copart(py):
-    py.visit('https://copart.com')
-    popular_models = py.find("li[ng-repeat*='popularSearch in popularSearches'] > a")
-    for model in popular_models:
-        print(f'{model.text} - {model.get_attribute("href")}')
-    assert py.should('popular_models.length == 20')
+import math
+
+
+
+def factorial_string(number):
+    factorial = math.factorial(number)
+    result = num2words(factorial)
+    return result
+
+
+def test_fact_num():
+    number = factorial_string(1)
+    assert number == "one"
+
+
+def test_12_num():
+    number = factorial_string(12)
+    assert number == "four hundred and seventy-nine million, one thousand, six hundred"
+
+
+def test_8_num():
+    number = factorial_string(8)
+    assert number == "forty thousand, three hundred and twenty"
+
+
+def test_5_num():
+    number = factorial_string(5)
+    assert number == "one hundred and twenty"
