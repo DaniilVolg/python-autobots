@@ -2,7 +2,7 @@
 
 import pandas as pd
 import pytest
-
+# file model_sheet.xlsx is located https://github.com/DaniilVolg/python-autobots/blob/master/model_sheet.xlsx you can load it on your machine , copy path to this file in your machine and replace new adress (E:\комп\model_sheet.xlsx) 
 orders = pd.read_excel('E:\комп\model_sheet.xlsx', sheet_name='cars')
 
 row1 = list(orders.iloc[0])
